@@ -11,7 +11,7 @@ export const siteConfig = {
     keywords: [
         // Primary name variations for brand recognition
         "Chatanya",
-        "Chatanyapra", 
+        "Chatanyapra",
         "Chatanya Pratap",
         "Chaitanya",
         "Chetanya",
@@ -20,32 +20,38 @@ export const siteConfig = {
         "Chetan",
         "Chetanyapra",
         "Chaitanyapra",
-        
+        "Chatanya Pra",
+        "Chetan Pratap",
+        "Chatanya Portfolio",
+        "Chatanyapra Portfolio",
+        "Chaitanya Portfolio",
+        "Chetanya Portfolio",
+
         // Core developer roles
         "Full Stack Developer",
         "MERN Stack Developer",
         "React Developer",
-        "Next.js Developer", 
+        "Next.js Developer",
         "Node.js Developer",
         "JavaScript Developer",
         "TypeScript Developer",
-        
+
         // Specialized skills
         "Frontend Developer",
         "Backend Developer",
         "Web Developer",
         "Software Engineer",
         "UI/UX Developer",
-        
+
         // Technologies & frameworks
         "React.js Expert",
-        "Next.js Specialist", 
+        "Next.js Specialist",
         "MongoDB Developer",
         "Express.js Developer",
         "Laravel Developer",
         "PHP Developer",
         "MySQL Developer",
-        
+
         // Modern tech stack
         "Tailwind CSS",
         "Framer Motion",
@@ -53,14 +59,14 @@ export const siteConfig = {
         "WebRTC Developer",
         "RESTful API",
         "GraphQL",
-        
+
         // DevOps & deployment
         "Docker",
         "AWS Developer",
         "CI/CD Pipeline",
         "Jenkins",
         "Kubernetes",
-        
+
         // Project types
         "Portfolio Website",
         "E-commerce Development",
@@ -68,7 +74,7 @@ export const siteConfig = {
         "Banking Application",
         "School Management System",
         "Real-time Chat Application",
-        
+
         // Services & availability
         "Freelance Developer",
         "Web Development Services",
@@ -76,12 +82,29 @@ export const siteConfig = {
         "Responsive Web Design",
         "Progressive Web Apps",
         "Tech Blog Writer",
-        
+
         // Location & availability
         "India Web Developer",
         "Remote Developer",
         "Freelance Web Developer India",
-        "Full Stack Developer for hire"
+        "Full Stack Developer for hire",
+
+        // SEO-focused name + role combinations
+        "Chatanya Full Stack Developer",
+        "Chatanyapra Web Developer",
+        "Chaitanya React Developer",
+        "Chetanya MERN Stack Developer",
+        "Chetan JavaScript Developer",
+        "Chatanya Pratap Portfolio Website",
+        "Chaitanya Pratap Developer",
+        "Chetanya Pratap Freelancer",
+
+        // Long-tail keywords for better ranking
+        "Chatanya Pratap Full Stack Developer Portfolio",
+        "Chatanyapra React Next.js Developer",
+        "Chaitanya Web Development Services",
+        "Chetanya MERN Stack Projects",
+        "Chetan Freelance Developer India"
     ],
     author: "Chatanya Pratap",
     social: {
