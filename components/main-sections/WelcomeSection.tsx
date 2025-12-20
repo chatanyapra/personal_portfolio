@@ -1,20 +1,14 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
+import ImageRevealHover from "../ui/ImageRevealHover";
 
 const WelcomeSection = () => {
     return (
         <div>
-            <div className="w-2/4 max-md:w-full h-full relative max-sm:overflow-hidden mb-2 md:mr-4 ">
-                <div className="w-96 home-image max-sm:scale-75 max-sm:w-[370px]" style={{ borderRadius: "100px", height: "500px" }}></div>
+            <div className="w-2/4 max-md:w-full h-full relative max-sm:overflow-hidden md:mr-4 ">
+                <div className="w-96 home-image max-sm:scale-75 max-sm:w-[370px] mt-3" style={{ borderRadius: "100px", height: "500px" }}></div>
                 <div className="w-96 h-[500px] rounded-[100px] m-auto absolute top-0 overflow-hidden max-sm:scale-75" >
-                    <Image
-                        src={"/assets/personsImages/my-image.png"}
-                        fill
-                        sizes="(max-width: 640px) 75vw, 384px"
-                        className="object-cover  z-10"
-                        priority
-                        alt="Chatanya Pratap - Full Stack Developer professional portrait"
-                    />
+                    <ImageRevealHover />
                 </div>
                 <motion.div
                     initial={{ x: 300, opacity: 0 }}
@@ -29,7 +23,7 @@ const WelcomeSection = () => {
                     className="imageUser moving-img left-[-120px] bg-gray-200 flex py-3 px-6 rounded-2xl z-10 justify-between items-center max-sm:relative max-sm:left-20">
                     <div className="relative flex justify-center items-center w-[60px] h-[60px]">
                         <Image
-                            src="/assets/personsImages/my-image2.png"
+                            src="/assets/personsImages/NewSideLook.PNG"
                             fill
                             sizes="(max-width: 768px) 60px, 60px"
                             className="rounded-full object-cover object-top"

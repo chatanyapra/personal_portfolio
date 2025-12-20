@@ -7,7 +7,7 @@ import Link from 'next/link';
 const Home = () => {
     return (
         <div>
-            <div className='w-full max-sm:pt-10 md:pt-40 flex items-center max-md:flex-col '>
+            <div className='w-full max-sm:pt-10 md:pt-32 flex items-center max-md:flex-col '>
 
                 <div className='w-full flex max-md:flex-col justify-between mx-auto items-center overflow-hidden z-10'>
                     <div className="w-2/4 max-md:w-full h-full max-lg:pl-4 max-sm:p-0">
