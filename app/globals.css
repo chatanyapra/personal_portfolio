@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Solway:wght@300;400;500;700;800&family=Metrophobic:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round:wght@400&family=Metrophobic:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:wght@200;300;400;500;600;700;800;900&family=Metrophobic:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Antique+B1:wght@400&family=Metrophobic:wght@400&display=swap');
+@import "tailwindcss";
+
 @tailwind utilities;
 
 @layer utilities {
@@ -5,12 +11,6 @@
     @apply bg-white/0 backdrop-blur-[30.5px] saturate-[0.9];
   }
 }
-
-@import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Solway:wght@300;400;500;700;800&family=Metrophobic:wght@400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round:wght@400&family=Metrophobic:wght@400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:wght@200;300;400;500;600;700;800;900&family=Metrophobic:wght@400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Shippori+Antique+B1:wght@400&family=Metrophobic:wght@400&display=swap');
 
 :root {
   --primary-color: #070a29;
