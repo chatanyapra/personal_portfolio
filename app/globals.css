@@ -225,6 +225,7 @@ p {
 .text-gradient {
   background: #a050aa;
   background: linear-gradient(to right, #a34bae 12%, #3db7dc 100%);
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
