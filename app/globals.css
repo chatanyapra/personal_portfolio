@@ -4,11 +4,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Shippori+Antique+B1:wght@400&family=Metrophobic:wght@400&display=swap');
 @import "tailwindcss";
 
-@tailwind utilities;
+/* @tailwind utilities; */
 
 @layer utilities {
   .glass-effect {
-    @apply bg-white/0 backdrop-blur-[30.5px] saturate-[0.9];
+    @apply bg-white/0 backdrop-blur-[30.5px] saturate-[1.5];
   }
 }
 
@@ -225,7 +225,6 @@ p {
 .text-gradient {
   background: #a050aa;
   background: linear-gradient(to right, #a34bae 12%, #3db7dc 100%);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
