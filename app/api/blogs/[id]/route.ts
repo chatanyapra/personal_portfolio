@@ -8,16 +8,10 @@ import { parseForm } from '@/lib/parseForm';
 import cloudinary from '@/lib/cloudinary';
 import fs from 'fs';
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
 
-export async function GET(req: NextRequest, context: { params: { id: string } }) {
+export async function GET(req: NextRequest, context: { params: Promise<{ id: string }> }) {
+  const { id: blogId } = await context.params;
   try {
-    const { id } = await context.params;
-    const blogId = id;
     await connectToDB();
 
     // Optional: validate ID format
@@ -48,7 +42,8 @@ export async function GET(req: NextRequest, context: { params: { id: string } })
 }
 
 
-export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(req: NextRequest, context: { params: Promise<{ id: string }> }) {
+  const { id: blogId } = await context.params;
   await connectToDB();
 
   const session = await getServerSession(authOptions);
@@ -60,7 +55,6 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
     // Parse formData (files + fields)
     const { fields, files } = await parseForm(req);
     const { title, shortDescription, longDescription } = fields;
-    const blogId = params.id;
 
     // Validate required fields
     if (!title || !shortDescription || !longDescription) {

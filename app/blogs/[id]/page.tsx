@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import { ScrollViewAnimation } from '@/components/component-animations/animations';
 import dynamic from 'next/dynamic';
 import DetailSkeleton from '@/components/ui/skeleton/DetailSkeleton';
+import { connectToDB } from '@/lib/mongodb';
+import Blog from '@/models/BlogModel';
+import { Types } from 'mongoose';
 
 const Blogpage = dynamic(() => import('@/components/pages/blogpage'));
 
@@ -11,12 +14,9 @@ type Params = {
 
 export async function generateStaticParams() {
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs`, {
-            next: { revalidate: 60 }
-        });
-        if (!res.ok) return [];
-        const { data } = await res.json();
-        return Array.isArray(data) ? data.map((blog: { _id: string }) => ({ id: blog._id })) : [];
+        await connectToDB();
+        const blogs = await Blog.find().select('_id').lean();
+        return Array.isArray(blogs) ? blogs.map((blog: any) => ({ id: String(blog._id) })) : [];
     } catch (error) {
         console.error("Failed to fetch blogs for static params:", error);
         return [];
@@ -29,15 +29,16 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     const id = params.id;
 
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/${id}`, {
-            next: { revalidate: 60 }
-        });
-
-        if (!res.ok) {
+        if (!Types.ObjectId.isValid(id)) {
             return { title: 'Blog Post Not Found' };
         }
 
-        const { data } = await res.json();
+        await connectToDB();
+        const data: any = await Blog.findById(id).lean();
+
+        if (!data) {
+            return { title: 'Blog Post Not Found' };
+        }
 
         return {
             title: `${data?.title} | Chatanya Pratap - Tech Blog`,
@@ -94,11 +95,11 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 
 export default async function page({ params }: { params: Params }) {
     const id = params.id;
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/${id}`, {
-        next: { revalidate: 60 }
-    });
-
-    const { data } = await res.json();
+    let data: any = null;
+    if (Types.ObjectId.isValid(id)) {
+        await connectToDB();
+        data = await Blog.findById(id).lean();
+    }
 
     return (
         <div className='w-full mx-auto flex flex-col relative pt-32 max-md:pt-12'>

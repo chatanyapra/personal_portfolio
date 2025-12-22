@@ -38,6 +38,7 @@ const ImageReveal = () => {
             {/* BASE IMAGE (FULL SIZE) */}
             <Image
                 src="/assets/personsImages/NewSideLook.PNG"
+                sizes="(max-width: 640px) 75vw, 384px"
                 fill
                 className="object-cover"
                 priority
@@ -57,6 +58,7 @@ const ImageReveal = () => {
                 >
                     <Image
                         src="/assets/personsImages/NewSideLight.PNG"
+                        sizes="(max-width: 640px) 75vw, 384px"
                         fill
                         className="object-cover"
                         alt="Reveal image"

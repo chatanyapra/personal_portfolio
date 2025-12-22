@@ -1,4 +1,6 @@
 import { MetadataRoute } from 'next';
+import { connectToDB } from '@/lib/mongodb';
+import BlogModel from '@/models/BlogModel';
 
 type Blog = {
   _id: string;
@@ -9,8 +11,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://chatanya.vercel.app';
 
   // Fetch dynamic blog posts
-  const res = await fetch(`${baseUrl}/api/blogs`, { next: { revalidate: 60 } });
-  const { data: blogs } = await res.json();
+  let blogs: Blog[] = [];
+  try {
+    await connectToDB();
+    const docs = await BlogModel.find().select('_id updatedAt').lean();
+    blogs = Array.isArray(docs) ? (docs as any) : [];
+  } catch {
+    blogs = [];
+  }
 
   const blogEntries: MetadataRoute.Sitemap = Array.isArray(blogs) ? blogs.map((blog: Blog) => ({
     url: `${baseUrl}/blogs/${blog._id}`,

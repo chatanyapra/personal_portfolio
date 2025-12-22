@@ -41,11 +41,6 @@ export async function GET(req: NextRequest) {
 
 
 // Disable Next.js's default body parser
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
 
 
 export async function POST(req: NextRequest) {

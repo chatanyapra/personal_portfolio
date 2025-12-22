@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import { ScrollViewAnimation } from '@/components/component-animations/animations';
 import dynamic from 'next/dynamic';
+import { connectToDB } from '@/lib/mongodb';
+import Project from '@/models/projectModel';
+import { Types } from 'mongoose';
 
 const Workpage = dynamic(() => import('@/components/pages/workpage'));
 
@@ -11,14 +14,11 @@ type Params = {
 // Static params for SSG
 export async function generateStaticParams() {
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/projects`, {
-            next: { revalidate: 60 },
-        });
-
-        if (!res.ok) throw new Error('Failed to fetch project list');
-
-        const { data } = await res.json();
-        return data.map((project: { _id: string }) => ({ id: project._id }));
+        await connectToDB();
+        const projects = await Project.find().select('_id').lean();
+        return Array.isArray(projects)
+            ? projects.map((project: any) => ({ id: String(project._id) }))
+            : [];
     } catch (err) {
         console.error('Error in generateStaticParams:', err);
         return []; // Prevent build crash
@@ -28,18 +28,22 @@ export async function generateStaticParams() {
 // Metadata for SEO
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
     const id = params.id;
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/projects/${id}`, {
-        next: { revalidate: 60 },
-    });
-
-    if (!res.ok) {
+    if (!Types.ObjectId.isValid(id)) {
         return {
             title: 'Project Not Found',
             description: 'The project you are looking for does not exist.',
         };
     }
 
-    const { data } = await res.json();
+    await connectToDB();
+    const data: any = await Project.findById(id).lean();
+
+    if (!data) {
+        return {
+            title: 'Project Not Found',
+            description: 'The project you are looking for does not exist.',
+        };
+    }
 
     return {
         title: data?.title || 'Project | My Website',
@@ -63,16 +67,11 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 
 export default async function page({ params }: { params: Params }) {
     const id = params.id;
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/projects/${id}`, {
-        next: { revalidate: 60 },
-    });
-
-    if (!res.ok) {
-        console.error(`Failed to fetch project ${id}: ${res.status}`);
-        throw new Error(`Failed to load project data`);
+    let project: any = null;
+    if (Types.ObjectId.isValid(id)) {
+        await connectToDB();
+        project = await Project.findById(id).lean();
     }
-
-    const { data: project } = await res.json();
 
     return (
         <div className="w-full mx-auto flex flex-col relative pt-32 max-md:pt-12">

@@ -10,12 +10,12 @@ import { Types } from 'mongoose';
 
 export async function GET(
     req: NextRequest,
-    { params }: { params: { id: string } }
+    context: { params: Promise<{ id: string }> }
 ) {
+    const { id: projectId } = await context.params;
     try {
         await connectToDB();
 
-        const projectId = params.id;
 
         if (!Types.ObjectId.isValid(projectId)) {
             return NextResponse.json(
@@ -46,8 +46,9 @@ export async function GET(
 // Update a project
 export async function PATCH(
     req: NextRequest,
-    { params }: { params: { id: string } }
+    context: { params: Promise<{ id: string }> }
 ) {
+    const { id: projectId } = await context.params;
     try {
         const session = await getServerSession(authOptions);
 
@@ -57,7 +58,6 @@ export async function PATCH(
 
         await connectToDB();
 
-        const projectId = params.id;
 
         if (!Types.ObjectId.isValid(projectId)) {
             return NextResponse.json(
