@@ -27,7 +27,8 @@ export async function generateStaticParams() {
 
 // Metadata for SEO
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-    const id = params.id;
+    const { id } = await params;
+
     if (!Types.ObjectId.isValid(id)) {
         return {
             title: 'Project Not Found',
@@ -66,7 +67,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 }
 
 export default async function page({ params }: { params: Params }) {
-    const id = params.id;
+    const { id } = await params;
     let project: any = null;
     if (Types.ObjectId.isValid(id)) {
         await connectToDB();

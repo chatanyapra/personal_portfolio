@@ -26,7 +26,7 @@ export async function generateStaticParams() {
 // Dynamically generate metadata for each blog
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
 
-    const id = params.id;
+    const { id } = await params;
 
     try {
         if (!Types.ObjectId.isValid(id)) {
@@ -94,7 +94,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 }
 
 export default async function page({ params }: { params: Params }) {
-    const id = params.id;
+    const { id } = await params;
     let data: any = null;
     if (Types.ObjectId.isValid(id)) {
         await connectToDB();
