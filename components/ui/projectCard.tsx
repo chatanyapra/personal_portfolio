@@ -80,7 +80,7 @@ const ProjectCard = ({
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
-    const shareLink = `https://chatanya.vercel.app/work/${id}`;
+    const shareLink = `https://chatanya.dev/work/${id}`;
     try {
       await navigator.clipboard.writeText(shareLink);
       setCopied(true);
@@ -121,7 +121,7 @@ const ProjectCard = ({
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.5 }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
           {featured && (
             <div className="absolute bottom-4 left-4">
               <span className="bg-blue-500 text-white text-sm font-medium px-3 py-1 rounded-full">
@@ -131,7 +131,7 @@ const ProjectCard = ({
           )}
         </div>
 
-        <div className="p-6 flex flex-col flex-grow">
+        <div className="p-6 flex flex-col grow">
           <div className="flex justify-between items-start mb-2">
             <h3 className="text-xl font-bold">
               {title}
@@ -182,7 +182,7 @@ const ProjectCard = ({
             </div>
           </div>
 
-          <p className="text-gray-800 light-gray-text mb-4 flex-grow text-sm">
+          <p className="text-gray-800 light-gray-text mb-4 grow text-sm">
             {description}
           </p>
 

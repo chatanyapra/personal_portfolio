@@ -8,8 +8,8 @@ export default function StructuredData() {
     "alternateName": ["Chatanya", "Chatanyapra", "Chaitanya", "Chetanya", "Chaitanya Pratap", "Chetanya Pratap", "Chetan", "Chetanyapra", "Chaitanyapra", "Chatanya Pra", "Chetan Pratap"],
     "jobTitle": ["Full Stack Developer", "MERN Stack Developer", "Freelance Web Developer"],
     "description": "Expert Full Stack Developer specializing in MERN stack, React, Next.js, Node.js, and modern web technologies. Available for freelance projects and full-time opportunities.",
-    "url": siteConfig.url || "https://chatanya.vercel.app",
-    "image": `${siteConfig.url || "https://chatanya.vercel.app"}${siteConfig.profileImage}`,
+    "url": siteConfig.url || "https://chatanya.dev",
+    "image": `${siteConfig.url || "https://chatanya.dev"}${siteConfig.profileImage}`,
     "sameAs": [
       "https://github.com/chatanyapra",
       "https://www.linkedin.com/in/chatanya-pratap-ab410a277/",
@@ -73,7 +73,7 @@ export default function StructuredData() {
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": siteConfig.url || "https://chatanya.vercel.app"
+      "@id": siteConfig.url || "https://chatanya.dev"
     },
     "offers": {
       "@type": "Offer",
@@ -87,7 +87,7 @@ export default function StructuredData() {
     "@type": "WebSite",
     "name": "Chatanya Pratap Portfolio",
     "alternateName": "Chatanyapra Portfolio",
-    "url": siteConfig.url || "https://chatanya.vercel.app",
+    "url": siteConfig.url || "https://chatanya.dev",
     "description": siteConfig.description,
     "author": {
       "@type": "Person",
@@ -98,7 +98,7 @@ export default function StructuredData() {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": `${siteConfig.url || "https://chatanya.vercel.app"}/blogs?search={search_term_string}`
+        "urlTemplate": `${siteConfig.url || "https://chatanya.dev"}/blogs?search={search_term_string}`
       },
       "query-input": "required name=search_term_string"
     }

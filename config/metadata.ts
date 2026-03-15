@@ -162,7 +162,7 @@ export const metadata: Metadata = {
     alternates: {
         canonical: `${urlmain}`,
     },
-    metadataBase: new URL(`${urlmain || 'https://chatanya.vercel.app'}`),
+    metadataBase: new URL(`${urlmain || 'https://chatanya.dev'}`),
     other: {
         "google-site-verification": "Oz8EedM8aBkgg0Igm42z88lDklyU1SXpR1oQNWfcFPA",
     }
