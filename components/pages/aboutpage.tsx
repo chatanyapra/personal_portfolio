@@ -7,7 +7,7 @@ const AboutPage = () => {
 
     return (
         <div className=" w-full flex justify-evenly max-md:items-center z-10 md:mt-32 max-md:flex-col">
-            <div className="w-[52%] max-md:w-[98%] min-h-[450px] overflow-hidden z-10 max-md:h-auto md:rounded-[50px] rounded-t-[50px] p-2 border-b-0 relative" >
+            <div className="w-[52%] max-md:w-[98%] min-h-112.5 overflow-hidden z-10 max-md:h-auto md:rounded-[50px] rounded-t-[50px] p-2 border-b-0 relative" >
                 <h1 className="text-4xl sm:text-5xl mt-4 font-bold">Hello,</h1>
                 <div className="text-4xl sm:text-5xl pt-4 font-bold pr-2">I&apos;m
                     <ScrollViewAnimation>
@@ -38,7 +38,7 @@ const AboutPage = () => {
                     alt="A portrait of Chatanya"
                     width={400}
                     height={450}
-                    className="m-auto w-full h-auto max-h-[450px] max-w-[450px] "
+                    className="m-auto w-full h-auto max-h-112.5 max-w-112.5 "
                     sizes="(max-width: 640px) 100vw, 440px"
                 />
             </div>
