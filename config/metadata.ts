@@ -161,6 +161,16 @@ export const metadata: Metadata = {
         images: [`${urlmain}${siteConfig.ogImage}`],
         creator: "@chatanyapra",
     },
+    icons: {
+        icon: [
+            { url: "/favicon.ico", sizes: "any" },
+            { url: "/icon.svg", type: "image/svg+xml" },
+        ],
+        apple: [
+            { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+        ],
+        shortcut: "/favicon.ico",
+    },
     alternates: {
         canonical: urlmain,
     },
