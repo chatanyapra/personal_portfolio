@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 
-export const urlmain = process.env.NEXT_PUBLIC_BASE_URL;
+// Always use custom domain for canonical URLs (not vercel.app)
+const isDev = process.env.NODE_ENV === 'development';
+export const urlmain = isDev ? 'http://localhost:3000' : 'https://chatanya.dev';
 
 export const siteConfig = {
     name: "Chatanya Pratap",
@@ -160,9 +162,9 @@ export const metadata: Metadata = {
         creator: "@chatanyapra",
     },
     alternates: {
-        canonical: `${urlmain}`,
+        canonical: urlmain,
     },
-    metadataBase: new URL(`${urlmain || 'https://chatanya.dev'}`),
+    metadataBase: new URL(urlmain),
     other: {
         "google-site-verification": "Oz8EedM8aBkgg0Igm42z88lDklyU1SXpR1oQNWfcFPA",
     }

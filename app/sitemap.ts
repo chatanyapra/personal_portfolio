@@ -8,7 +8,9 @@ type Blog = {
 };
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://chatanya.dev';
+  // Always use custom domain for sitemap URLs (not vercel.app)
+  const isDev = process.env.NODE_ENV === 'development';
+  const baseUrl = isDev ? 'http://localhost:3000' : 'https://chatanya.dev';
 
   // Fetch dynamic blog posts
   let blogs: Blog[] = [];
