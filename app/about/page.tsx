@@ -13,7 +13,7 @@ const TechStack = dynamic(() => import("@/components/TechStack"));
 
 const page = () => {
     return (
-        <div className="min-h-[1200px] w-full relative overflow-hidden flex flex-col items-center m-auto" style={{ maxWidth: "1600px" }}>
+        <div className="min-h-300 w-full relative overflow-hidden flex flex-col items-center m-auto" style={{ maxWidth: "1600px" }}>
             <AboutPage />
             <div className="w-full z-10 sm:mt-28 mt-10 px-0">
                 <Skills />

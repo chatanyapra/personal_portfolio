@@ -30,7 +30,7 @@ const MovingBand = () => {
   const renderItems = useMemo(() => [...techItems, ...techItems], [techItems]);
 
   return (
-    <div className="z-10 w-full overflow-hidden mt-6 sm:mb-10 select-none pointer-events-none">
+    <div className="z-10 w-full overflow-hidden mt-6 sm:mb-10 select-none pointer-events-none py-20">
       {/* Top Band */}
       <div className="w-[110%] overflow-hidden whitespace-nowrap bg-black/30 backdrop-blur-xl -rotate-6 -ml-3 -mb-20 mt-20">
         <div

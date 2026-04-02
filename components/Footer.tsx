@@ -6,7 +6,7 @@ const Footer = () => {
     const gmailImage = "/assets/IconsImage/gmail.png";
 
     return (
-        <div className='w-full min-h-60 relative flex max-md:flex-col justify-between items-center px-10 max-sm:px-5 max-md:mt-16 max-md:pb-14 mb-20'>
+        <div className='w-full m-auto max-w-400 min-h-60 relative flex max-md:flex-col justify-between items-center px-10 max-sm:px-5 max-md:mt-16 max-md:pb-14 mb-20'>
             <Image
                 src={footerImage3}
                 alt="Decorative violet blur effect for Chatanya Pratap's portfolio footer"

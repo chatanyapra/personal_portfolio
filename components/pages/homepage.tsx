@@ -11,7 +11,7 @@ const SEOKeywords = dynamic(() => import("@/components/SEOKeywords"));
 
 export default function HomePage() {
     return (
-        <div className="min-h-[1200px] w-full relative  overflow-hidden flex flex-col items-center m-auto" style={{ maxWidth: "1600px" }}>
+        <div className="min-h-300 w-full relative  overflow-hidden flex flex-col items-center m-auto" style={{ maxWidth: "1600px" }}>
             <SEOKeywords />
             <Home />
             <div className="w-full z-10 mt-32 max-md:mt-0 flex flex-col items-center">
